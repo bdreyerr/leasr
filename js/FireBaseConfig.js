@@ -1,13 +1,19 @@
       // Your web app's Firebase configuration
       var firebaseConfig = {
-        apiKey: "AIzaSyAVo95Uhru5y8w29KM5MA3VVhLNNvbpxZU",
-        authDomain: "sublease-5a504.firebaseapp.com",
-        databaseURL: "https://sublease-5a504.firebaseio.com",
-        projectId: "sublease-5a504",
-        storageBucket: "sublease-5a504.appspot.com",
-        messagingSenderId: "877733738268",
-        appId: "1:877733738268:web:ae879c163293a99a"
+        apiKey: "AIzaSyDDUtqrSwrxpOBCtFaupAhwjParxJ3LSpo",
+        authDomain: "leasr-scu.firebaseapp.com",
+        databaseURL: "https://leasr-scu.firebaseio.com",
+        projectId: "leasr-scu",
+        storageBucket: "",
+        messagingSenderId: "630499067439",
+        appId: "1:630499067439:web:90e7c534a6bf68bd"
       };
+
       // Initialize Firebase
       firebase.initializeApp(firebaseConfig);
-      var database = firebase.database();
+
+      //auth and db references
+      const db = firebase.database();
+      const auth = firebase.auth();
+
+
