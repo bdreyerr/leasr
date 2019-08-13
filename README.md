@@ -1,5 +1,32 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Branching Strategy
+Check out a branch when working on a new feature, front or back end, use:
+`git checkout -b featureName`
+To check if you're in a particular branch, use:
+`git branch`
 
+## Rules
+1. DON'T merge with MASTER unless someone knows you're about to and you've tested with the latest version of master
+2. Make sure the branch you create is for one feature/tool/refactor and that one only. Limit how much a branch touches so we don't fuck each other over
+
+## Commands
+These are just some helpful commands you might want to use when branching
+### `git checkout branchName`
+Switch to a branch by this name that is locally stored
+
+### `git pull origin/branchName`
+### `git checkout branchName`
+This pulls a branch from the repo, then you switch to it locally
+
+### `git checkout -D branchName`
+This deletes a branch
+
+## Checking code in on console
+1. `cd ..` to root directory... i.e. leasr
+2. `git add .`
+3. `git commit -m "MESSAGE DESCRIBING WHAT YOU DID"`
+4. `git push`... sometimes you may need to copy the upstream command because it hasn't been created yet, just copy and paste the prompted one in console
+
+# REACT STUFF FOR BEN CAUSE HE NO KNOW
 ## Available Scripts
 
 In the project directory, you can run:
@@ -36,33 +63,3 @@ If you aren’t satisfied with the build tool and configuration choices, you can
 Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
 
 You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
