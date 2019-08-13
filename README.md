@@ -20,6 +20,9 @@ This pulls a branch from the repo, then you switch to it locally
 ### `git checkout -D branchName`
 This deletes a branch
 
+### `git status`
+This displays if the branch you're in is up to date
+
 ## Checking code in on console
 1. `cd ..` to root directory... i.e. leasr
 2. `git add .`
