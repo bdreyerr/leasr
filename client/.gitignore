@@ -1,9 +1,10 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
-# dependencies DONT FUCKING TOUCH THIS，NEVER LET node_modules leave
+# dependencies
 /node_modules
 /.pnp
 .pnp.js
+
 # testing
 /coverage
 
