@@ -9,15 +9,17 @@ const mapStyles = {
 export class MapContainer extends React.Component {
   render() {
     return (
-      <Map
-        google={this.props.google}
-        zoom={14}
-        style={mapStyles}
-        initialCenter={{
-         lat: 37.349829,
-         lng: -121.938955
-        }}
-      />
+      <div style={{ position: 'relative', height: '100vh' }}>
+        <Map
+          google={this.props.google}
+          zoom={14}
+          style={mapStyles}
+          initialCenter={{
+          lat: 37.349829,
+          lng: -121.938955
+          }}
+        />
+      </div>
     );
   }
 }
