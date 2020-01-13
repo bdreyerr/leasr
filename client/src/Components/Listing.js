@@ -14,6 +14,7 @@ class Listing extends Component {
             minPrice:"",
             maxPrice:"",
             roommatePref:"",
+            aptOrRoom: "",
             lat: "",
             lng: "",
             months: "",
@@ -68,6 +69,13 @@ class Listing extends Component {
         return(
             <div>
                 <form>
+                <select value = {this.state.aptOrRoom} onChange= {this.handleChange}
+                   name = "aptOrRoom">
+                       <option value="nothing">Type of Housing</option>
+                       <option value="apartment">Apartment</option>
+                       <option value = "home">Home</option>
+                   </select>
+                   <br />
                     <input type="text" name="addressOne" value={this.state.addressOne}
                     placeholder="Address One" onChange={this.handleChange}/>
                     <br />
