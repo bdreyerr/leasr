@@ -17,7 +17,7 @@ Switch to a branch by this name that is locally stored
 ### `git checkout branchName`
 This pulls a branch from the repo, then you switch to it locally
 
-### `git checkout -D branchName`
+### `git branch -D branchName`
 This deletes a branch
 
 ### `git status`
