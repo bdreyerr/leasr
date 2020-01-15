@@ -22,7 +22,7 @@ class Signup extends Component{
     }
 
     handleClick(id){
-        if(this.state.password != this.state.reEnteredPassword){
+        if(this.state.password !== this.state.reEnteredPassword){
             alert("Your passwords do not match!")
             //isValidForm = false
         }

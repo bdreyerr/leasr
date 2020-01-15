@@ -1,38 +1,49 @@
 import React from 'react';
-import {BrowserRouter, NavLink} from 'react-router-dom';
-import Navbar from 'react-bootstrap/Navbar';
-import './NavBar.css'
-import Logo from './img/logo.png'
 
 class NavBarNew extends React.Component {
     render() {
         return(
-            <BrowserRouter>
-                <div className = "menu">
-                    <div className="table">
-                        <ul className="hor_lst">
-                            <li><NavLink to="/"exact>Home</NavLink></li>
-                            <li><NavLink to="/Listing">Create/Manage Listings</NavLink></li>
-                            <li><NavLink to ="/Room">Find a Room</NavLink></li>
-                            <li>
-                                <Navbar.Brand href="#home" className="bd-highlight">
-                                    <img
-                                        alt="LEASR"
-                                        src={Logo}
-                                        width="60"
-                                        height="60"
-                                        className="d-inline-block align-top rounded"
-                                    />
-                                </Navbar.Brand>
-                            </li>
-                            <li><NavLink to="/Favorites">Favorited Listings</NavLink></li>
-                            <li><NavLink to="/Messages">Messages</NavLink></li>
-                            <li><NavLink to="/About">About</NavLink></li>
-                            <li><NavLink to="/Signup">Signup/Signin</NavLink></li>
-                        </ul>
+            <nav bg="light" className="navbar navbar-expand-lg navbar-dark ">
+            {/* Navbar brand */}
+            <a className="navbar-brand" href="#">Navbar</a>
+            {/* Collapse button */}
+            <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#basicExampleNav" aria-controls="basicExampleNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span className="navbar-toggler-icon" />
+            </button>
+            {/* Collapsible content */}
+            <div className="collapse navbar-collapse" id="basicExampleNav">
+                {/* Links */}
+                <ul className="navbar-nav mr-auto">
+                <li className="nav-item active">
+                    <a className="nav-link" href="#">Home
+                    <span className="sr-only">(current)</span>
+                    </a>
+                </li>
+                <li className="nav-item">
+                    <a className="nav-link" href="#">Features</a>
+                </li>
+                <li className="nav-item">
+                    <a className="nav-link" href="#">Pricing</a>
+                </li>
+                {/* Dropdown */}
+                <li className="nav-item dropdown">
+                    <a className="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown</a>
+                    <div className="dropdown-menu dropdown-primary" aria-labelledby="navbarDropdownMenuLink">
+                        <a className="dropdown-item" href="#">Action</a>
+                        <a className="dropdown-item" href="#">Another action</a>
+                        <a className="dropdown-item" href="#">Something else here</a>
                     </div>
+                </li>
+                </ul>
+                {/* Links */}
+                <form className="form-inline">
+                <div className="md-form my-0">
+                    <input className="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search" />
                 </div>
-            </BrowserRouter>
+                </form>
+            </div>
+            {/* Collapsible content */}
+            </nav>
         );
     }
 }

@@ -1,13 +1,15 @@
 import React from 'react';
+import {Link} from 'react-router-dom';
 import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import Button from 'react-bootstrap/Button';
 import FormControl from 'react-bootstrap/FormControl';
 import InputGroup from 'react-bootstrap/InputGroup';
-import Logo from '../leasr-brand-green.svg'
+import Logo from '../leasr-brand-green.svg';
+import ProfileIcon from './img/user-circle-solid.svg';
 
-class NavBar extends React.Component {
+class NavBar extends React.Component {    
     render() {
         return (
             <header>
@@ -21,7 +23,7 @@ class NavBar extends React.Component {
                             className="d-inline-block align-top rounded"
                         />
                     </Navbar.Brand>
-                    <InputGroup inline className="mr-md-3">
+                    <InputGroup inline className="mr-md-2 w-50">
                         <FormControl type="text" placeholder="Search"/>
                         <InputGroup.Append>
                             <Button variant="outline-success">Search</Button>
@@ -29,11 +31,21 @@ class NavBar extends React.Component {
                     </InputGroup>
                     
                     <Navbar.Toggle aria-controls="basic-navbar-nav" />
-                    <Navbar.Collapse className="mr-auto" id="basic-navbar-nav">
-                        <Nav className="mr-auto">
-                            <NavDropdown title="Account">
-                                <NavDropdown.Item href="#">Login</NavDropdown.Item>
-                                <NavDropdown.Item href="#">Register</NavDropdown.Item>
+                    <Navbar.Collapse className="w-50 mx-auto" id="basic-navbar-nav">
+                        <Nav className="ml-auto p-2">
+                            <Button variant="outline-success">Create a Listing</Button>
+                        </Nav>
+                        <Nav className="">
+                            <NavDropdown title={
+                                    <img className="thumbnail-image" 
+                                        src={ProfileIcon}
+                                        width="30"
+                                        height="30"
+                                        alt="account pic"
+                                    />
+                            }>
+                                <NavDropdown.Item><Link to="/login">Login</Link></NavDropdown.Item>
+                                <NavDropdown.Item><Link to="/register">Register</Link></NavDropdown.Item>
                             </NavDropdown>
                         </Nav>
                     </Navbar.Collapse>

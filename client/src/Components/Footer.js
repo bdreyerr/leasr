@@ -3,7 +3,7 @@ import React from 'react';
 class Footer extends React.Component {
     render() {
         return (
-            <footer class="page-footer font-small stylish-color-dark pt-4">
+            <footer color="grey" className="page-footer font-small stylish-color-dark pt-4">
                 <div className="container text-center text-md-left">
                     <div className="row">
                         <div className="col-md-4 mx-auto">
@@ -71,15 +71,12 @@ class Footer extends React.Component {
                 <hr />
                 <ul className="list-unstyled list-inline text-center py-2">
                     <li className="list-inline-item">
-                        <h5 className="mb-1">Sign up to be Ben's gimp</h5>
-                    </li>
-                    <li className="list-inline-item">
-                        <a href="#!" className="btn btn-danger btn-rounded">Gimp Intern!</a>
+                        <a href="#!" className="btn btn-success btn-rounded">Become a Leasr!</a>
                     </li>
                 </ul>
                 <hr />
                 <div className="footer-copyright text-center py-3">© 2020 Copyright:
-                    <a href="https://mdbootstrap.com/education/bootstrap/"> Leasrs.com</a>
+                    <a href="#"> Leasr.com</a>
                 </div>
             </footer>
 
