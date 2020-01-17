@@ -15,7 +15,7 @@ class NavBar extends React.Component {
             <header>
                 <Navbar bg="light" expand="lg">
                     <Navbar.Brand  className="bd-highlight">
-                        <Link to="/home">
+                        <Link exact to="/">
                             <img
                                 alt="LEASR"
                                 src={Logo}
