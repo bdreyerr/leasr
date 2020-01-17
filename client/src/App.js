@@ -17,10 +17,11 @@ function App() {
     <Router>
       <div className="App">
         <NavBar />
-        <MapContainer />
-        <Footer />
 
         <Switch>
+            <Route path="/home">
+              <MapContainer />  
+            </Route>
             <Route path="/login">
                 <Register />
             </Route>
@@ -28,6 +29,8 @@ function App() {
                 <Register />
             </Route>
         </Switch>
+
+        <Footer />
       </div>
     </Router>
   );

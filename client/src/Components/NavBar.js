@@ -14,14 +14,16 @@ class NavBar extends React.Component {
         return (
             <header>
                 <Navbar bg="light" expand="lg">
-                    <Navbar.Brand href="#home" className="bd-highlight">
-                        <img
-                            alt="LEASR"
-                            src={Logo}
-                            width="60"
-                            height="60"
-                            className="d-inline-block align-top rounded"
-                        />
+                    <Navbar.Brand  className="bd-highlight">
+                        <Link to="/home">
+                            <img
+                                alt="LEASR"
+                                src={Logo}
+                                width="60"
+                                height="60"
+                                className="d-inline-block align-top rounded"
+                            />
+                        </Link>
                     </Navbar.Brand>
                     <InputGroup inline className="mr-md-2 w-50">
                         <FormControl type="text" placeholder="Search"/>
