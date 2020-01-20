@@ -1,8 +1,8 @@
-import React, {Component} from 'react'
+import React from 'react'
 import Geocode from "react-geocode"
 import {CountryDropdown, RegionDropdown, CountryRegionData} from "react-country-region-selector"
 
-class Listing extends Component {
+class Listing extends React.Component {
     constructor(){
         super()
         this.state={

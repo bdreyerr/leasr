@@ -6,54 +6,36 @@ import Form from 'react-bootstrap/Form';
 //then at the bottom of the page there should be a link
 //that leads you to be able to sign into your account if already have one
 class Login extends React.Component{
-    constructor(){
-        super()
-        this.state={
-            email: "",
-            password: "",
-            reEnteredPassword:""
-        }
-        this.handleChange = this.handleChange.bind(this)
-        this.handleClick = this.handleClick.bind(this)
-    }
-
-    handleChange(event){
-        this.setState({
-            [event.target.name]: event.target.value
-        })
-    }
-
-    handleClick(id){
-        if(this.state.password !== this.state.reEnteredPassword){
-            alert("Your passwords do not match!")
-            //isValidForm = false
-        }
-    }
-
     render(){
         return(
-            <div>
-                <Form className="p-5">
-                    <Form.Group className="mx-auto w-50" controlId="formBasicEmail">
-                        <Form.Label>Email address</Form.Label>
-                        <Form.Control type="email" placeholder="Enter email" value={this.state.email} onChange={this.handleChange}/>
-                    </Form.Group>
+            <div className="mt-5 mb-5 bg-light rounded mx-auto w-25 auth-wrapper">
+                <div className="p-5 auth-inner">
+                    <form>
+                        <h3>Sign In</h3>
 
-                    <Form.Group className="mx-auto w-50" controlId="formBasicPassword">
-                        <Form.Label>Password</Form.Label>
-                        <Form.Control type="password" placeholder="Password" value={this.state.password} onChange={this.handleChange}/>
-                    </Form.Group>
+                        <div className="p-2 form-group">
+                            <input type="email" className="form-control" placeholder="Enter email" />
+                        </div>
 
-                    <Form.Group controlId="formBasicCheckbox">
-                        <Form.Check type="radio" label="Remember Me" />
-                    </Form.Group>
+                        <div className="p-2 form-group">
+                            <input type="password" className="form-control" placeholder="Enter password" />
+                        </div>
 
-                    <Button variant="outline-success" type="submit" onClick={this.handleClick}>
-                        Login
-                    </Button>
-                </Form>
+                        <div className="p-2 form-group">
+                            <div className="custom-control custom-checkbox">
+                                <input type="checkbox" className="custom-control-input" id="customCheck1" />
+                                <label className="custom-control-label" htmlFor="customCheck1">Remember me</label>
+                            </div>
+                        </div>
+
+                        <button type="submit" className="p-2 pb-0 btn btn-success btn-block">Submit</button>
+                        <p className="forgot-password text-right">
+                            Forgot <a className="text-success" href="#">password?</a>
+                        </p>
+                    </form>
+                </div>
             </div>
-        )
+        );
     }
 }
 

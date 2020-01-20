@@ -14,7 +14,7 @@ class NavBar extends React.Component {
         return (
             <header>
                 <Navbar bg="light" expand="lg">
-                    <Navbar.Brand  className="bd-highlight">
+                    <Navbar.Brand  className="pl-4 bd-highlight">
                         <Link exact to="/">
                             <img
                                 alt="LEASR"
@@ -45,9 +45,9 @@ class NavBar extends React.Component {
                                         height="30"
                                         alt="account pic"
                                     />
-                            }>
-                                <NavDropdown.Item><Link to="/login">Login</Link></NavDropdown.Item>
-                                <NavDropdown.Item><Link to="/register">Register</Link></NavDropdown.Item>
+                            } className="pr-4">
+                                <NavDropdown.Item><Link className="text-success" to="/login">Login</Link></NavDropdown.Item>
+                                <NavDropdown.Item><Link className="text-success" to="/register">Register</Link></NavDropdown.Item>
                             </NavDropdown>
                         </Nav>
                     </Navbar.Collapse>

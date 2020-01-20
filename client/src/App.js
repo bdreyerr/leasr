@@ -12,12 +12,15 @@ import MapContainer from './Components/MapContainer.js';
 import Footer from './Components/Footer.js';
 import Register from './Components/Register';
 import Login from './Components/Login';
+import Listing from './Components/Listing';
 
 function App() {
   return (
     <Router>
       <div className="App">
         <NavBar />
+        <Listing />
+        
         <Switch>
             <Route path="/" exact component={MapContainer} />
             <Route path="/login" exact component={Login} />

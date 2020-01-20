@@ -1,4 +1,9 @@
 import React from 'react';
+import {Link} from 'react-router-dom';
+import Team from './img/users-solid.svg';
+import Question from './img/question-solid.svg';
+import Contact from './img/envelope-solid.svg';
+import HashTag from './img/hashtag-solid.svg';
 
 class Footer extends React.Component {
     render() {
@@ -7,62 +12,81 @@ class Footer extends React.Component {
                 <div className="container text-center text-md-left">
                     <div className="row">
                         <div className="col-md-4 mx-auto">
-                        <h5 className="font-weight-bold text-uppercase mt-3 mb-4">Footer Content</h5>
-                        <p>Here you can use rows and columns to organize your footer content. Lorem ipsum dolor sit amet,
-                            consectetur
-                            adipisicing elit.</p>
+                        <h5 className="font-weight-bold text-uppercase mt-3 mb-4">Leasr</h5>
+                        <p>Student focused subletting made easy. Find and post leases to help students worry less, and accomplish more. Find a Leasr for the Summer, term abroad, or any other reason.</p>
                         </div>
                         <hr className="clearfix w-100 d-md-none" />
                         <div className="col-md-2 mx-auto">
-                        <h5 className="font-weight-bold text-uppercase mt-3 mb-4">Links</h5>
+                        <h5 className="font-weight-bold text-uppercase mt-3 mb-4">Company</h5>
                         <ul className="list-unstyled">
                             <li>
-                            <a href="#!">Link 1</a>
+                                <img className="pr-1 thumbnail-image" 
+                                    src={Question}
+                                    width="20"
+                                    height="20"
+                                    alt="Team icon"
+                                />
+                                <a className="text-success" href="#!">What We're About</a>
                             </li>
                             <li>
-                            <a href="#!">Link 2</a>
+                                <img className="pr-1 thumbnail-image" 
+                                    src={Team}
+                                    width="20"
+                                    height="20"
+                                    alt="Team icon"
+                                />
+                                <a className="text-success" href="#!">Meet the Team</a>
                             </li>
                             <li>
-                            <a href="#!">Link 3</a>
+                                <img className="pr-1 thumbnail-image" 
+                                    src={HashTag}
+                                    width="20"
+                                    height="20"
+                                    alt="Team icon"
+                                />
+                                <a className="text-success" href="#!">Social Media</a>
                             </li>
                             <li>
-                            <a href="#!">Link 4</a>
+                                <img className="pr-1 thumbnail-image" 
+                                    src={Contact}
+                                    width="20"
+                                    height="20"
+                                    alt="Team icon"
+                                />
+                                <a className="text-success" href="#!">Contact Us</a>
                             </li>
                         </ul>
                         </div>
                         <hr className="clearfix w-100 d-md-none" />
                         <div className="col-md-2 mx-auto">
-                        <h5 className="font-weight-bold text-uppercase mt-3 mb-4">Links</h5>
+                        <h5 className="font-weight-bold text-uppercase mt-3 mb-4">Support</h5>
                         <ul className="list-unstyled">
                             <li>
-                            <a href="#!">Link 1</a>
+                            <a className="text-success" href="#!">Troubleshoot</a>
                             </li>
                             <li>
-                            <a href="#!">Link 2</a>
+                            <a className="text-success" href="#!">Common Questions</a>
                             </li>
                             <li>
-                            <a href="#!">Link 3</a>
+                            <a className="text-success" href="#!">Report a Bug</a>
                             </li>
                             <li>
-                            <a href="#!">Link 4</a>
+                            <a className="text-success" href="#!">Get Help</a>
                             </li>
                         </ul>
                         </div>
                         <hr className="clearfix w-100 d-md-none" />
                         <div className="col-md-2 mx-auto">
-                        <h5 className="font-weight-bold text-uppercase mt-3 mb-4">Links</h5>
+                        <h5 className="font-weight-bold text-uppercase mt-3 mb-4">Useful Links</h5>
                         <ul className="list-unstyled">
                             <li>
-                            <a href="#!">Link 1</a>
+                            <a className="text-success" href="#!">Create a Lease</a>
                             </li>
                             <li>
-                            <a href="#!">Link 2</a>
+                            <a className="text-success" href="#!">Terms of Use</a>
                             </li>
                             <li>
-                            <a href="#!">Link 3</a>
-                            </li>
-                            <li>
-                            <a href="#!">Link 4</a>
+                            <a className="text-success" href="#!">Privacy Policy</a>
                             </li>
                         </ul>
                         </div>
@@ -71,7 +95,7 @@ class Footer extends React.Component {
                 <hr />
                 <ul className="list-unstyled list-inline text-center py-2">
                     <li className="list-inline-item">
-                        <a href="#!" className="btn btn-success btn-rounded">Become a Leasr!</a>
+                        <Link className="btn btn-success btn-rounded" to="/register">Become a Leasr!</Link>
                     </li>
                 </ul>
                 <hr />
@@ -79,13 +103,6 @@ class Footer extends React.Component {
                     <a href="#"> Leasr.com</a>
                 </div>
             </footer>
-
-            // <footer>
-            //      <div>
-            //          <a href="#Home">Leasr </a>
-            //          <span>&copy; 2019 Leasr.</span>
-            //      </div>
-            // </footer>
         );
     }
 }

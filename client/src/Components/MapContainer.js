@@ -9,7 +9,7 @@ const mapStyles = {
 export class MapContainer extends React.Component {
   render() {
     return (
-      <div style={{ position: 'relative', height: '100vh' }}>
+      <div style={{ position: 'relative', height: '91vh' }}>
         <Map
           google={this.props.google}
           zoom={14}
