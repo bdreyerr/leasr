@@ -1,6 +1,5 @@
 import React from 'react';
-import Button from 'react-bootstrap/Button';
-import Form from 'react-bootstrap/Form';
+import {Link} from 'react-router-dom';
 //so signup should instantly take you to a page that 
 //lets you create an account
 //then at the bottom of the page there should be a link
@@ -35,7 +34,7 @@ class Register extends React.Component{
 
                         <button type="submit" className="p-2 pb-0 btn btn-success btn-block">Sign Up</button>
                         <p className="forgot-password text-success text-right">
-                            Already registered <a className="text-success" href="#">sign in?</a>
+                            Already registered <Link className="text-success" href="#">sign in?</Link>
                         </p>
                     </form>
                 </div>
