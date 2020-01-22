@@ -10,8 +10,10 @@ import NavBar from './Components/NavBar.js';
 import Footer from './Components/Footer.js';
 import Register from './Components/Register';
 import Login from './Components/Login';
-import Jumbo from './Components/Jumbo';
+import Jumbo from './Components/Home/Jumbo';
 import Search from './Components/Search';
+import About from './Components/Extras/About';
+import Meet from './Components/Extras/Meet';
 
 function App() {
   return (
@@ -25,6 +27,9 @@ function App() {
             <Route path="/login" exact component={Login} />
             <Route path="/register" exact component={Register} />
             <Route path="/search" exact component={Search} />
+            <Route path="/about" exact component={About} />
+            <Route path="/meet" exact component={Meet} />
+
         </Switch>
         <Footer />
       </div>

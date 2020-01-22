@@ -8,11 +8,11 @@ class NavBar extends React.Component {
     render() {
         return (
             <header>
-                <Navbar bg="light" expand="lg">
-                    <Nav className="mr-auto w-50">
+                <Navbar expand="lg">
+                    <Nav className="mr-auto w-25">
                         <Link className="text-success pr-4" to="/">Manage Subletters</Link>
                         <Link className="text-success pr-4" to="/">Help</Link>
-                        <Link className="text-success pr-4" to="/">About</Link>
+                        <Link className="text-success pr-4" to="/about">About</Link>
                     </Nav>
 
                     <Navbar.Brand  className="mx-auto w-50 bd-highlight">
@@ -26,7 +26,7 @@ class NavBar extends React.Component {
                             />
                         </Link>
                     </Navbar.Brand>
-                    <Nav className="ml-auto w-50">
+                    <Nav className="ml-auto w-25">
                         <Link className="ml-auto text-success">Create Listing</Link>
                         <Link className="pl-4 text-success" to="/login">Login</Link>
                         <Link className="pl-4 text-success" to="/register">Register</Link>

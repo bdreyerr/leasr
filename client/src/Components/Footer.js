@@ -9,6 +9,7 @@ class Footer extends React.Component {
     render() {
         return (
             <footer color="grey" className="page-footer font-small stylish-color-dark pt-4">
+                <hr />
                 <div className="container text-center text-md-left">
                     <div className="row">
                         <div className="col-md-4 mx-auto">
@@ -26,7 +27,7 @@ class Footer extends React.Component {
                                         height="20"
                                         alt="Team icon"
                                     />
-                                    <Link className="text-success" href="#!">What We're About</Link>
+                                    <Link className="text-success" to="/about">What We're About</Link>
                                 </li>
                                 <li>
                                     <img className="pr-1 thumbnail-image" 
@@ -35,7 +36,7 @@ class Footer extends React.Component {
                                         height="20"
                                         alt="Team icon"
                                     />
-                                    <Link className="text-success" href="#!">Meet the Team</Link>
+                                    <Link className="text-success" to="/meet">Meet the Team</Link>
                                 </li>
                                 <li>
                                     <img className="pr-1 thumbnail-image" 
@@ -96,13 +97,12 @@ class Footer extends React.Component {
                     </div>
                 </div>
                 <hr />
-                <ul className="list-unstyled list-inline text-center py-2">
+                <ul className="list-unstyled list-inline text-center pt-2">
                     <li className="list-inline-item">
                         <Link className="btn btn-success btn-rounded" to="/register">Become a Leasr!</Link>
                     </li>
                 </ul>
-                <hr />
-                <div className="footer-copyright text-center py-3">© 2020 Copyright:
+                <div className="bg-secondary text-white footer-copyright text-center py-3">© 2020 Copyright:
                     <Link className="text-success" href="#"> Leasr.com</Link>
                 </div>
             </footer>

@@ -3,13 +3,13 @@ import Jumbotron from 'react-bootstrap/Jumbotron';
 import FormControl from 'react-bootstrap/FormControl';
 import InputGroup from 'react-bootstrap/InputGroup';
 import {Link} from 'react-router-dom';
-import bgimage from './img/bckgrnd.jpg';
-import searchimg from './img/search-solid.svg';
+import bgimage from '../img/bckgrnd.jpg';
+import searchimg from '../img/search-solid.svg';
 
 export class Jumbo extends React.Component {
     render() {
         return (
-            <Jumbotron fluid style={{ backgroundImage: `url(${bgimage})`, backgroundSize: 'cover', position: 'relative', height: '91vh' }}>
+            <Jumbotron className="my-auto" fluid style={{ backgroundImage: `url(${bgimage})`, backgroundSize: 'cover', position: 'relative', height: '91vh' }}>
                     <div className="my-auto">
                         <h1 className="text-light mx-auto w-50 p-5">Finding a sublease is one click away.</h1>
                         <InputGroup inline className="mx-auto w-50">
