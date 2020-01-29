@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import Geocode from "react-geocode"
 import {CountryDropdown, RegionDropdown, CountryRegionData} from "react-country-region-selector"
+import {MDBRangeInput} from 'mdbreact'
 
 class Listing extends Component {
     constructor(){
@@ -18,7 +19,17 @@ class Listing extends Component {
             lat: "",
             lng: "",
             months: "",
-            startDate: ""
+            startDate: "",
+            description:"",
+            roomOrHouse: "",
+            pets: "",
+            refrigerator: false,
+            oven: false,
+            sharedWasherDryer: false,
+            stove: false,
+            washerDryerInUnit:false,
+            noWasherDryer: false,
+            roommateInfo: ""
         }
         this.handleChange = this.handleChange.bind(this)
         this.handleClick = this.handleClick.bind(this)
@@ -35,10 +46,16 @@ class Listing extends Component {
     
 
     handleChange(event){
-        this.setState({
-            [event.target.name]: event.target.value
+        const {name, value, type, checked} = event.target
+        type === "checkbox" ? this.setState({
+            [name]:checked
+        })
+        :this.setState({
+            [name]:value
         })
     }
+
+    handleCheckboxChange = event => this.setState({ checked: event.target.checked })
 
     handleClick(id){
         // set response language. Defaults to english.
@@ -69,6 +86,70 @@ class Listing extends Component {
         return(
             <div>
                 <form>
+                    <h3>Please check all appliance features that your place contains:</h3>
+                    <label>
+                        <input
+                            type="checkbox"
+                            name="refrigerator"
+                            checked = {this.state.refrigerator}
+                            onChange = {this.handleChange}
+                        />
+                        refrigerator
+                    </label>
+                    <label>
+                        <input
+                            type="checkbox"
+                            name="oven"
+                            checked = {this.state.oven}
+                            onChange = {this.handleChange}
+                        />
+                        oven
+                    </label>
+                    <label>
+                        <input
+                            type="checkbox"
+                            name="sharedWasherDryter"
+                            checked = {this.state.sharedWasherDryer}
+                            onChange = {this.handleChange}
+                        />
+                        Shared washer/dryer on-site
+                    </label>
+                    <br />
+                    <label>
+                        <input
+                            type="checkbox"
+                            name="stove"
+                            checked = {this.state.stove}
+                            onChange = {this.handleChange}
+                        />
+                        stove
+                    </label>
+                    <label>
+                        <input
+                            type="checkbox"
+                            name="washerDryerInUnit"
+                            checked = {this.state.washerDryerInUnit}
+                            onChange = {this.handleChange}
+                        />
+                        Washer/Dryer in unit
+                    </label>
+                    <label>
+                        <input
+                            type="checkbox"
+                            name="noWasherDryer"
+                            checked = {this.state.noWasherDryer}
+                            onChange = {this.handleChange}
+                        />
+                        No washer/dryer
+                    </label>
+                    <br />
+                    <select value = {this.state.roomOrHouse} onChange= {this.handleChange}
+                        name = "roomOrHouse">
+                            <option value="nothing">Room or Whole House</option>
+                            <option value="singleRoom">Single Room</option>
+                            <option value = "wholeHouse">Whole House</option>
+                    </select>
+                    <br />
                 <select value = {this.state.aptOrRoom} onChange= {this.handleChange}
                    name = "aptOrRoom">
                        <option value="nothing">Type of Housing</option>
@@ -128,6 +209,19 @@ class Listing extends Component {
                        <option value = "No_Preference">No Preference</option>
                    </select>
                     <br />
+                    <textarea name = "roommateInfo" value={this.state.roommateInfo} 
+                placeholder="Place any oddities about either your roommate or house that a subleasor should know of."
+                onChange={this.handleChange}>
+
+                </textarea>
+                <br />
+                    <select value = {this.state.pets} onChange= {this.handleChange}
+                   name = "pets">
+                       <option value="nothing">Pets Allowed?</option>
+                       <option value="yes">Yes</option>
+                       <option value = "no">No</option>
+                   </select>
+                   <br />
                     <button onSubmit={this.handleClick}>Submit</button>
                 </form>
                 <h1>{this.state.lat} {this.state.lng}</h1>
