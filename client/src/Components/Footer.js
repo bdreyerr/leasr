@@ -103,7 +103,7 @@ class Footer extends React.Component {
                     </li>
                 </ul>
                 <div className="bg-secondary text-white footer-copyright text-center py-3">© 2020 Copyright:
-                    <Link className="text-success" href="#"> Leasr.com</Link>
+                    <Link className="text-success" to="/"> Leasr.com</Link>
                 </div>
             </footer>
         );

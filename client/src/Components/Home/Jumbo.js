@@ -9,7 +9,7 @@ import searchimg from '../img/search-solid.svg';
 export class Jumbo extends React.Component {
     render() {
         return (
-            <Jumbotron className="my-auto" fluid style={{ backgroundImage: `url(${bgimage})`, backgroundSize: 'cover', position: 'relative', height: '91vh' }}>
+            <Jumbotron className="my-auto" fluid style={{ backgroundImage: `url(${bgimage})`, backgroundSize: 'cover', position: 'relative', height: '90.5vh' }}>
                     <div className="my-auto">
                         <h1 className="text-light mx-auto w-50 p-5">Finding a sublease is one click away.</h1>
                         <InputGroup inline className="mx-auto w-50">

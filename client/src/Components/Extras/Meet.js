@@ -1,5 +1,4 @@
 import React from 'react';
-import {Link} from 'react-router-dom';
 import Jumbotron from 'react-bootstrap/Jumbotron';
 import bckgrnd from '../img/san-francisco-bridge-photo.jpg';
 import mitch from '../img/mitch.jpg';

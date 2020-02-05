@@ -11,7 +11,7 @@ import Footer from './Components/Footer.js';
 import Register from './Components/Register';
 import Login from './Components/Login';
 import Jumbo from './Components/Home/Jumbo';
-import Search from './Components/Search';
+import Search from './Components/Listing';
 import About from './Components/Extras/About';
 import Meet from './Components/Extras/Meet';
 

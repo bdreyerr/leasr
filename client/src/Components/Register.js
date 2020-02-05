@@ -34,7 +34,7 @@ class Register extends React.Component{
 
                         <button type="submit" className="p-2 pb-0 btn btn-success btn-block">Sign Up</button>
                         <p className="forgot-password text-success text-right">
-                            Already registered <Link className="text-success" href="#">sign in?</Link>
+                            <Link className="text-success" to="/login">Already registered? Sign in</Link>
                         </p>
                     </form>
                 </div>

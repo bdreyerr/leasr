@@ -4,8 +4,8 @@ import {Link} from 'react-router-dom';
 //lets you create an account
 //then at the bottom of the page there should be a link
 //that leads you to be able to sign into your account if already have one
-class Login extends React.Component{
-    render(){
+class Login extends React.Component {
+    render() {
         return(
             <div className="mt-5 mb-5 bg-light rounded mx-auto w-25 auth-wrapper">
                 <div className="p-5 auth-inner">
@@ -28,8 +28,8 @@ class Login extends React.Component{
                         </div>
 
                         <button type="submit" className="p-2 pb-0 btn btn-success btn-block">Submit</button>
-                        <p className="forgot-password text-right">
-                            Forgot <Link className="text-success" href="#">password?</Link>
+                        <p className="forgot-password text-right text-success">
+                            <Link className="text-success" href="#">Forgot password?</Link>
                         </p>
                     </form>
                 </div>

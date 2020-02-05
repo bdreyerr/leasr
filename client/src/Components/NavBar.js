@@ -10,7 +10,7 @@ class NavBar extends React.Component {
             <header>
                 <Navbar expand="lg">
                     <Nav className="mr-auto w-25">
-                        <Link className="text-success pr-4" to="/">Manage Subletters</Link>
+                        <Link className="text-success pr-4" to="/">Manage Leases</Link>
                         <Link className="text-success pr-4" to="/">Help</Link>
                         <Link className="text-success pr-4" to="/about">About</Link>
                     </Nav>
