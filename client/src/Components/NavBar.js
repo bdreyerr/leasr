@@ -28,13 +28,8 @@ class NavBar extends React.Component {
                     </Navbar.Brand>
                     <Nav className="ml-auto w-25">
                         <Link className="ml-auto text-success">Create Listing</Link>
-                        {isAuthenticated
-                            ? <Link className="pl-4 text-success" onClick={handleLogout}>Logout</Link>
-                            : <>
                             <Link className="pl-4 text-success" to="/login">Login</Link>
                             <Link className="pl-4 text-success" to="/register">Register</Link>
-                            </>
-                        }
                     </Nav>
                 </Navbar>
             </header>

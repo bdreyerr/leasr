@@ -1,41 +1,12 @@
-import React, { useState } from 'react';
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route
-} from "react-router-dom";
+import React from 'react';
 import './App.css';
-import NavBar from './Components/NavBar.js';
-// import MapContainer from './Components/MapContainer.js';
-import Footer from './Components/Footer.js';
-import Register from './Components/Register';
-import Login from './Components/Login';
-import Jumbo from './Components/Home/Jumbo';
-import Search from './Components/Listing';
-import About from './Components/Extras/About';
-import Meet from './Components/Extras/Meet';
+import Routes from "./Routes";
 
 function App() {
-  const [isAuthenticated, userHasAuthenticated] = useState(false);
-  function handleLogout() {
-    userHasAuthenticated(false);
-  }  
   return (
-    <Router>
-      <div className="App">
-        <NavBar />
-        <Switch>
-            <Route path="/" exact component={Jumbo} />
-            <Route path="/login" exact component={Login} appProps={{ isAuthenticated, userHasAuthenticated }} />
-            <Route path="/register" exact component={Register} />
-            <Route path="/search" exact component={Search} />
-            <Route path="/about" exact component={About} />
-            <Route path="/meet" exact component={Meet} />
-
-        </Switch>
-        <Footer />
-      </div>
-    </Router>
+    <div className="App">
+      <Routes />
+    </div>
   );
 }
 

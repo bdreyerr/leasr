@@ -1,11 +1,12 @@
 import React, {useState} from 'react';
-import { Button, FormGroup, FormControl, HelpBlock, ControlLabel } from "react-bootstrap";
+import { Button, FormGroup, FormControl, FormLabel } from "react-bootstrap";
+// import HelpBlock from 'react-bootstrap/HelpBlock ';
 import { Link } from 'react-router-dom';
-import LoaderButton from "../components/LoaderButton";
-import { useFormFields } from "../libs/hooksLib";
+// import LoaderButton from "../components/LoaderButton";
+// import { useFormFields } from "../libs/hooksLib";
 
 export default function Login(props) {
-    const [fields, handleFieldChange] = useFormFields({
+    const [fields, handleFieldChange] = ({
         email: "",
         password: "",
         confirmPassword: "",
@@ -46,16 +47,16 @@ export default function Login(props) {
         return (
           <form onSubmit={handleConfirmationSubmit}>
             <FormGroup controlId="confirmationCode" bsSize="large">
-              <ControlLabel>Confirmation Code</ControlLabel>
+              <FormLabel>Confirmation Code</FormLabel>
               <FormControl
                 autoFocus
                 type="tel"
                 onChange={handleFieldChange}
                 value={fields.confirmationCode}
               />
-              <HelpBlock>Please check your email for the code.</HelpBlock>
+              {/* <HelpBlock>Please check your email for the code.</HelpBlock> */}
             </FormGroup>
-            <LoaderButton
+            <Button
               block
               type="submit"
               bsSize="large"
@@ -63,7 +64,7 @@ export default function Login(props) {
               disabled={!validateConfirmationForm()}
             >
               Verify
-            </LoaderButton>
+            </Button>
           </form>
         );
     }
@@ -75,7 +76,7 @@ export default function Login(props) {
                     <form onSubmit={handleSubmit}>
                         <h3>Sign Up</h3>
                         <FormGroup className="p-2" controlId="email" bsSize="large">
-                            <FormControl
+                            <FormLabel
                                 autoFocus
                                 type="email"
                                 value={fields.email}
@@ -85,7 +86,7 @@ export default function Login(props) {
                         </FormGroup>
 
                         <FormGroup  className="p-2" controlId="password" bsSize="large">
-                        <FormControl
+                        <FormLabel
                             type="password"
                             value={fields.password}
                             onChange={handleFieldChange}
@@ -94,7 +95,7 @@ export default function Login(props) {
                         </FormGroup>
 
                         <FormGroup  className="p-2" controlId="password" bsSize="large">
-                            <FormControl
+                            <FormLabel
                                 type="password"
                                 onChange={handleFieldChange}
                                 value={fields.confirmPassword}
@@ -102,9 +103,9 @@ export default function Login(props) {
                             />
                         </FormGroup>
 
-                        <LoaderButton block className="p-2 pb-0 btn-success" bsSize="large" isLoading={isLoading} disabled={!validateForm()} type="submit">
+                        <Button block className="p-2 pb-0 btn-success" bsSize="large" isLoading={isLoading} disabled={!validateForm()} type="submit">
                         Sign Up
-                        </LoaderButton>
+                        </Button>
 
                         <p className="forgot-password text-success text-right">
                             <Link className="text-success" to="/login">Already registered? Sign in</Link>
