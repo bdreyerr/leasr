@@ -1,86 +1,125 @@
 import React, {useState} from 'react';
-import { Button, FormGroup, FormControl } from "react-bootstrap";
+import { Button, FormGroup, FormControl, HelpBlock, ControlLabel } from "react-bootstrap";
 import { Link } from 'react-router-dom';
+import LoaderButton from "../components/LoaderButton";
+import { useFormFields } from "../libs/hooksLib";
 
 export default function Login(props) {
-    const [firstName, setFirst] = useState("");
-    const [lastName, setLast] = useState("");
-    const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("");
-    const [repassword, checkPassword] = useState("");
-
+    const [fields, handleFieldChange] = useFormFields({
+        email: "",
+        password: "",
+        confirmPassword: "",
+        confirmationCode: ""
+    });
+    const [newUser, setNewUser] = useState(null);
+    const [isLoading, setIsLoading] = useState(false);
+    
     function validateForm() {
-        return email.length > 0 && password.length > 0;
+        return (
+            fields.email.length > 0 &&
+            fields.password.length > 0 &&
+            fields.password === fields.confirmPassword
+        );
     }
-
-    function handleSubmit(event) {
+    
+    function validateConfirmationForm() {
+        return fields.confirmationCode.length > 0;
+    }
+    
+    async function handleSubmit(event) {
         event.preventDefault();
+    
+        setIsLoading(true);
+    
+        setNewUser("test");
+    
+        setIsLoading(false);
+    }
+    
+    async function handleConfirmationSubmit(event) {
+        event.preventDefault();
+    
+        setIsLoading(true);
+    }
+    
+    function renderConfirmationForm() {
+        return (
+          <form onSubmit={handleConfirmationSubmit}>
+            <FormGroup controlId="confirmationCode" bsSize="large">
+              <ControlLabel>Confirmation Code</ControlLabel>
+              <FormControl
+                autoFocus
+                type="tel"
+                onChange={handleFieldChange}
+                value={fields.confirmationCode}
+              />
+              <HelpBlock>Please check your email for the code.</HelpBlock>
+            </FormGroup>
+            <LoaderButton
+              block
+              type="submit"
+              bsSize="large"
+              isLoading={isLoading}
+              disabled={!validateConfirmationForm()}
+            >
+              Verify
+            </LoaderButton>
+          </form>
+        );
     }
 
-    return (
-        <div className="mt-5 mb-5 bg-light rounded mx-auto w-25 auth-wrapper">
-            <div className="p-5 auth-inner">
-                <form onSubmit={handleSubmit}>
-                    <h3>Sign Up</h3>
-                    <FormGroup className="p-2" controlId="email" bsSize="large">
-                        <FormControl
-                            autoFocus
-                            type="text"
-                            value={firstName}
-                            onChange={e => setFirst(e.target.value)}
-                            placeholder="First Name"
-                        />
-                    </FormGroup>
+    function renderForm() {
+        return (
+            <div className="mt-5 mb-5 bg-light rounded mx-auto w-25 auth-wrapper">
+                <div className="p-5 auth-inner">
+                    <form onSubmit={handleSubmit}>
+                        <h3>Sign Up</h3>
+                        <FormGroup className="p-2" controlId="email" bsSize="large">
+                            <FormControl
+                                autoFocus
+                                type="email"
+                                value={fields.email}
+                                onChange={handleFieldChange}
+                                placeholder="Enter email"
+                            />
+                        </FormGroup>
 
-                    <FormGroup className="p-2" controlId="email" bsSize="large">
+                        <FormGroup  className="p-2" controlId="password" bsSize="large">
                         <FormControl
-                            autoFocus
-                            type="text"
-                            value={lastName}
-                            onChange={e => setLast(e.target.value)}
-                            placeholder="Last Name"
-                        />
-                    </FormGroup>
-
-                    <FormGroup className="p-2" controlId="email" bsSize="large">
-                        <FormControl
-                            autoFocus
-                            type="email"
-                            value={email}
-                            onChange={e => setEmail(e.target.value)}
-                            placeholder="Enter email"
-                        />
-                    </FormGroup>
-
-                    <FormGroup  className="p-2" controlId="password" bsSize="large">
-                        <FormControl
-                            value={password}
-                            onChange={e => setPassword(e.target.value)}
                             type="password"
-                            placeholder="Enter password"
+                            value={fields.password}
+                            onChange={handleFieldChange}
+                            placeholder="Enter Password"
                         />
-                    </FormGroup>
+                        </FormGroup>
 
-                    <FormGroup  className="p-2" controlId="password" bsSize="large">
-                        <FormControl
-                            value={repassword}
-                            onChange={e => checkPassword(e.target.value)}
-                            type="password"
-                            placeholder="Re-enter password"
-                        />
-                    </FormGroup>
+                        <FormGroup  className="p-2" controlId="password" bsSize="large">
+                            <FormControl
+                                type="password"
+                                onChange={handleFieldChange}
+                                value={fields.confirmPassword}
+                                placeholder="Re-enter password"
+                            />
+                        </FormGroup>
 
-                    <Button block className="p-2 pb-0 btn-success" bsSize="large" disabled={!validateForm()} type="submit">
-                    Sign Up
-                    </Button>
+                        <LoaderButton block className="p-2 pb-0 btn-success" bsSize="large" isLoading={isLoading} disabled={!validateForm()} type="submit">
+                        Sign Up
+                        </LoaderButton>
 
-                    <p className="forgot-password text-success text-right">
-                        <Link className="text-success" to="/login">Already registered? Sign in</Link>
-                    </p>
-                </form>
+                        <p className="forgot-password text-success text-right">
+                            <Link className="text-success" to="/login">Already registered? Sign in</Link>
+                        </p>
+                    </form>
+                </div>
             </div>
+        );
+    }
+    
+    return (
+        <div className="Signup">
+          {newUser === null ? renderForm() : renderConfirmationForm()}
         </div>
-    );
+      );
 }
 
 

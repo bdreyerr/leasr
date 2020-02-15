@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
   BrowserRouter as Router,
   Switch,
@@ -16,15 +16,17 @@ import About from './Components/Extras/About';
 import Meet from './Components/Extras/Meet';
 
 function App() {
+  const [isAuthenticated, userHasAuthenticated] = useState(false);
+  function handleLogout() {
+    userHasAuthenticated(false);
+  }  
   return (
     <Router>
       <div className="App">
         <NavBar />
-
-
         <Switch>
             <Route path="/" exact component={Jumbo} />
-            <Route path="/login" exact component={Login} />
+            <Route path="/login" exact component={Login} appProps={{ isAuthenticated, userHasAuthenticated }} />
             <Route path="/register" exact component={Register} />
             <Route path="/search" exact component={Search} />
             <Route path="/about" exact component={About} />

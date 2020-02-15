@@ -1,11 +1,7 @@
 import React, {useState} from 'react';
 import { Button, FormGroup, FormControl, Form } from "react-bootstrap";
 import { Link } from 'react-router-dom';
-// import { ControlLabel } from 'react';
-//so signup should instantly take you to a page that 
-//lets you create an account
-//then at the bottom of the page there should be a link
-//that leads you to be able to sign into your account if already have one
+import { Auth } from "aws-amplify";
 
 export default function Login(props) {
     const [email, setEmail] = useState("");
@@ -15,9 +11,16 @@ export default function Login(props) {
         return email.length > 0 && password.length > 0;
     }
 
-    function handleSubmit(event) {
+    async function handleSubmit(event) {
         event.preventDefault();
-    }
+        
+        try {
+            await Auth.signIn(email, password);
+            props.userHasAuthenticated(true);
+        } catch (e) {
+            alert(e.message);
+        }
+    }      
 
     return (
         <div className="mt-5 mb-5 bg-light rounded mx-auto w-25 auth-wrapper">
