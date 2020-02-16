@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { Auth } from "aws-amplify";
 import './App.css';
 import Routes from "./Routes";
 import {Link} from 'react-router-dom';
@@ -8,12 +9,34 @@ import Logo from './leasr-brand-green.svg';
 
 function App() {
   const [isAuthenticated, userHasAuthenticated] = useState(false);
+  const [isAuthenticating, setIsAuthenticating] = useState(true);
+
+  useEffect(() => {
+    onLoad();
+  }, []);
   
-  function handleLogout() {
+  async function onLoad() {
+    try {
+      await Auth.currentSession();
+      userHasAuthenticated(true);
+    }
+    catch(e) {
+      if (e !== 'No current user') {
+        alert(e);
+      }
+    }
+  
+    setIsAuthenticating(false);
+  }
+  
+  async function handleLogout() {
+    await Auth.signOut();
+  
     userHasAuthenticated(false);
   }
   
   return (
+    !isAuthenticating &&
     <div className="App">
       <Navbar expand="lg">
           <Nav className="mr-auto w-25">
