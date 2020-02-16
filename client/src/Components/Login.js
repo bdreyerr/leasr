@@ -1,21 +1,25 @@
-import React, { useState } from "react";
+import React from "react";
 import { Button, FormGroup, FormControl, FormLabel } from "react-bootstrap";
 import { Auth } from "aws-amplify";
+import { useFormFields } from "../libs/hooksLib";
 
 export default function Login(props) {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [fields, handleFieldChange] = useFormFields({
+    email: "",
+    password: ""
+  });
 
   function validateForm() {
-    return email.length > 0 && password.length > 0;
+    return fields.email.length > 0 && fields.password.length > 0;
   }
 
   async function handleSubmit(event) {
     event.preventDefault();
   
     try {
-      await Auth.signIn(email, password);
+      await Auth.signIn(fields.email, fields.password);
       props.userHasAuthenticated(true);
+      props.history.push("/");
     } catch (e) {
       alert(e.message);
     }
@@ -29,15 +33,15 @@ export default function Login(props) {
           <FormControl
             autoFocus
             type="email"
-            value={email}
-            onChange={e => setEmail(e.target.value)}
+            value={fields.email}
+            onChange={handleFieldChange}
           />
         </FormGroup>
         <FormGroup controlId="password" bsSize="large">
           <FormLabel>Password</FormLabel>
           <FormControl
-            value={password}
-            onChange={e => setPassword(e.target.value)}
+            value={fields.password}
+            onChange={handleFieldChange}
             type="password"
           />
         </FormGroup>

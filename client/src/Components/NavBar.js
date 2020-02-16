@@ -29,7 +29,7 @@
 //                     <Nav className="ml-auto w-25">
 //                         <Link className="ml-auto text-success">Create Listing</Link>
 //                             <Link className="pl-4 text-success" to="/login">Login</Link>
-//                             <Link className="pl-4 text-success" to="/register">Register</Link>
+//                             <Link className="pl-4 text-success" to="/signup">signup</Link>
 //                     </Nav>
 //                 </Navbar>
 //             </header>

@@ -59,10 +59,10 @@ function App() {
           <Nav className="ml-auto w-25">
               <Link className="pl-4 text-success">Create Listing</Link>
               {isAuthenticated
-                ? <Link className="pl-4 text-success" to="/login"><NavItem onClick={handleLogout}>Logout</NavItem></Link>
+                ? <Link className="pl-4 text-success" to="/"><NavItem onClick={handleLogout}>Logout</NavItem></Link>
                 : <>
                     <Link className="pl-4 text-success" to="/login"><NavItem>Login</NavItem></Link>
-                    <Link className="pl-4 text-success" to="/register"><NavItem>Register</NavItem></Link>
+                    <Link className="pl-4 text-success" to="/signup"><NavItem>signup</NavItem></Link>
                   </>
               }
           </Nav>
