@@ -89,6 +89,7 @@ class Listing extends Component {
         return(
             <div>
                 <form>
+<<<<<<< HEAD:js/Components/Listing.js
                     <h3>Please check all appliance features that your place contains:</h3>
                     <label>
                         <input
@@ -153,6 +154,8 @@ class Listing extends Component {
                             <option value = "wholeHouse">Whole House</option>
                     </select>
                     <br />
+=======
+>>>>>>> dd02d52bf392846609cb6242567f0acbb0c43f20:src/Components/Listing.js
                 <select value = {this.state.aptOrRoom} onChange= {this.handleChange}
                    name = "aptOrRoom">
                        <option value="nothing">Type of Housing</option>
