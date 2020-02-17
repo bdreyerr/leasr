@@ -10,7 +10,7 @@ class Meet extends React.Component {
     render() {
         return (
             <div className="stylish-color-dark">
-                <Jumbotron fluid style={{ backgroundImage: `url(${bckgrnd})`, backgroundSize: 'cover', position: 'relative', height: '40vh' }}>
+                <Jumbotron fluid style={{ backgroundImage: `url(${bckgrnd})`, backgroundSize: 'cover', position: 'relative', height: '45vh' }}>
                     <h1 className="text-light mx-auto w-75 my-auto">Our team is a group of passionate students from Santa Clara University who have been friends for years. We come from diverse backgrounds with unique experience and expertise.</h1>
                 </Jumbotron>
                 <h2 className="mx-auto w-50">Meet our developers!</h2>
@@ -24,7 +24,7 @@ class Meet extends React.Component {
                         />
                         <h5>Mitch Hansen</h5>
                         <Figure.Caption className="text-success">
-                            Co-Founder &amp; Software Engineer
+                            Co-Founder &amp; SWE
                         </Figure.Caption>
                     </Figure>
                     <Figure className="text-left p-5">
@@ -36,7 +36,7 @@ class Meet extends React.Component {
                         />
                         <h5>Ben Dreyer</h5>
                         <Figure.Caption className="text-success">
-                            Co-Founder &amp; Software Engineer
+                            Co-Founder &amp; SWE
                         </Figure.Caption>
                     </Figure>
                     <Figure className="text-left p-5">
@@ -48,7 +48,19 @@ class Meet extends React.Component {
                         />
                         <h5>Paul Mason</h5>
                         <Figure.Caption className="text-success">
-                            Co-Founder &amp; Software Engineer
+                            Co-Founder &amp; SWE
+                        </Figure.Caption>
+                    </Figure>
+                    <Figure className="text-left p-5">
+                        <Figure.Image
+                            width={200}
+                            height={220}
+                            alt="Mitch"
+                            src={mitch}
+                        />
+                        <h5>Myles Hansen</h5>
+                        <Figure.Caption className="text-success">
+                            SWE &amp; Mobile Developer
                         </Figure.Caption>
                     </Figure>
                 </div>
