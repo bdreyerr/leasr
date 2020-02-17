@@ -12,7 +12,7 @@ class About extends React.Component {
 
                 <ul className="list-unstyled list-inline text-center py-2">
                     <li className="list-inline-item">
-                        <Link className="btn btn-success btn-rounded" to="/register">Become a Leasr!</Link>
+                        <Link className="btn btn-success btn-rounded" to="/signup">Become a Leasr!</Link>
                     </li>
                 </ul>
             </div>
