@@ -6,7 +6,7 @@ import {
   FormLabel
 } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import { useFormFields } from "../libs/hooksLib";
+import { useFormFields } from "../../libs/hooksLib";
 import { Auth } from "aws-amplify";
 
 export default function Signup(props) {
@@ -60,26 +60,32 @@ export default function Signup(props) {
 
   function renderConfirmationForm() {
     return (
-      <form onSubmit={handleConfirmationSubmit}>
-        <FormGroup controlId="confirmationCode" bsSize="large">
-          <FormLabel>Confirmation Code</FormLabel>
-          <FormControl
-            autoFocus
-            type="tel"
-            onChange={handleFieldChange}
-            value={fields.confirmationCode}
-          />
-          <p>Please check your email for the code.</p>
-        </FormGroup>
-        <Button
-          block
-          type="submit"
-          bsSize="large"
-          disabled={!validateConfirmationForm()}
-        >
-          Verify
-        </Button>
-      </form>
+      <div className="mt-5 mb-5 bg-light rounded mx-auto w-25 auth-wrapper">
+        <div className="p-5 auth-inner">
+          <form onSubmit={handleConfirmationSubmit}>
+            <FormGroup controlId="confirmationCode" bsSize="large">
+              <FormLabel>Confirmation Code</FormLabel>
+              <FormControl
+                autoFocus
+                type="tel"
+                onChange={handleFieldChange}
+                value={fields.confirmationCode}
+                className="p-2"
+              />
+              <p className="text-success p-2">Please check your email for the code.</p>
+            </FormGroup>
+            <Button
+              block
+              type="submit"
+              bsSize="large"
+              disabled={!validateConfirmationForm()}
+              className="p-2 pb-0 btn btn-success btn-block"
+            >
+              Verify
+            </Button>
+          </form>
+        </div>
+      </div>
     );
   }
 

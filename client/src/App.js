@@ -62,7 +62,7 @@ function App() {
                 ? <Link className="pl-4 text-success" to="/"><NavItem onClick={handleLogout}>Logout</NavItem></Link>
                 : <>
                     <Link className="pl-4 text-success" to="/login"><NavItem>Login</NavItem></Link>
-                    <Link className="pl-4 text-success" to="/signup"><NavItem>signup</NavItem></Link>
+                    <Link className="pl-4 text-success" to="/signup"><NavItem>Signup</NavItem></Link>
                   </>
               }
           </Nav>

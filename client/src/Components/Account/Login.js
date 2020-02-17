@@ -2,7 +2,7 @@ import React from "react";
 import { Button, FormGroup, FormControl, FormLabel } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { Auth } from "aws-amplify";
-import { useFormFields } from "../libs/hooksLib";
+import { useFormFields } from "../../libs/hooksLib";
 
 export default function Login(props) {
   const [fields, handleFieldChange] = useFormFields({
@@ -55,7 +55,7 @@ export default function Login(props) {
           </Button>
 
           <p className="forgot-password text-right text-success">
-              <Link className="text-success" href="#">Forgot password?</Link>
+              <Link className="text-success" to="/login/reset">Forgot password?</Link>
           </p>
         </form>
       </div>
