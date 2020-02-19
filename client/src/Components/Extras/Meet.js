@@ -2,6 +2,7 @@ import React from 'react';
 import Jumbotron from 'react-bootstrap/Jumbotron';
 import bckgrnd from '../img/san-francisco-bridge-photo.jpg';
 import mitch from '../img/mitch.jpg';
+import ben from '../img/ben.jpg'
 import zach from '../img/zach.JPG';
 import andrew from '../img/andrew.jpeg';
 import Figure from 'react-bootstrap/Figure';
@@ -31,8 +32,8 @@ class Meet extends React.Component {
                         <Figure.Image
                             width={200}
                             height={220}
-                            alt="Mitch"
-                            src={mitch}
+                            alt="Ben"
+                            src={ben}
                         />
                         <h5>Ben Dreyer</h5>
                         <Figure.Caption className="text-success">

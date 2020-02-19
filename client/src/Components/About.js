@@ -8,7 +8,7 @@ const About = () =>{
             <p> 
                 Leasr started in 2019 when a group of students 
                 at Santa Clara University decided it was time 
-                to create a better alternative to Facebook in 
+                to create a better alternative to Facebook Marketplace in 
                 order to find a subleaser for their short term 
                 room rentals. Spam messages, lack of organization, 
                 no rental location, no easily accessible searching filters, 
