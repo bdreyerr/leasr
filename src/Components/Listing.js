@@ -1,11 +1,17 @@
 import React, {Component} from 'react'
 import Geocode from "react-geocode"
 import {CountryDropdown, RegionDropdown, CountryRegionData} from "react-country-region-selector"
-import {MDBRangeInput} from 'mdbreact'
+import Slider from 'react-input-slider'
+import Calendar from 'react-calendar'
+import Amplify, { graphqlOperation } from 'aws-amplify'
+import { Connect } from 'aws-amplify-react'
+import * as queries from './graphql/queries'
+import * as subscriptions from './graphql/subscriptions'
+import * as mutations from './graphql/mutations'
 
 class Listing extends Component {
-    constructor(){
-        super()
+    constructor(props){
+        super(props)
         this.state={
             addressOne:"",
             addressTwo: "",
@@ -19,7 +25,7 @@ class Listing extends Component {
             lat: "",
             lng: "",
             months: "",
-            startDate: "",
+            startDate: new Date(),
             description:"",
             roomOrHouse: "",
             pets: "",
@@ -29,10 +35,53 @@ class Listing extends Component {
             stove: false,
             washerDryerInUnit:false,
             noWasherDryer: false,
-            roommateInfo: ""
+            roommateInfo: "",
+            x: 10,
+            subleaseReason: "",
+            roomDescr: ""
         }
         this.handleChange = this.handleChange.bind(this)
         this.handleClick = this.handleClick.bind(this)
+        this.submit = this.submit.bind(this)
+    }
+
+    async submit(){
+        const { onCreate } = this.props
+        const input = {
+            addressOne: this.state.addressOne,
+            addressTwo: this.state.addressTwo,
+            country: this.state.country,
+            region:this.state.region,
+            zipCode: this.state.zipCode,
+            minPrice: this.state.minPrice,
+            maxPrice: this.state.maxPrice,
+            roommatePref: this.state.roommatePref,
+            aptOrRoom:  this.state.aptOrRoom,
+            lat: this.state.lat,
+            lng: this.state.lng,
+            months: this.state.months,
+            startDate: this.state.startDate,
+            description: this.state.description,
+            roomOrHouse: this.state.roomOrHouse,
+            pets: this.state.pets,
+            refrigerator: this.state.refrigerator,
+            oven: this.state.oven,
+            sharedWasherDryer: this.state.sharedWasherDryer,
+            stove: this.state.stove,
+            washerDryerInUnit:this.state.washerDryerInUnit,
+            noWasherDryer: this.state.noWasherDryer,
+            roommateInfo: this.state.roommateInfo,
+            x: this.state.x,
+            subleaseReason: this.state.subleaseReason,
+            roomDescr: this.state.roomDescr
+        }
+        console.log(input)
+
+        try {
+            await onCreate({input})
+        } catch(err){
+            console.error(err)
+        }
     }
 
     selectCountry (val) {
@@ -43,7 +92,7 @@ class Listing extends Component {
         this.setState({ region: val });
     }
 
-    
+    onChange = startDate => this.setState({ startDate })
 
     handleChange(event){
         const {name, value, type, checked} = event.target
@@ -56,14 +105,14 @@ class Listing extends Component {
     }
 
     handleCheckboxChange = event => this.setState({ checked: event.target.checked })
-
+/// address geocoding in the google api
     handleClick(id){
         // set response language. Defaults to english.
         Geocode.setLanguage("en");
         
         // set response region. Its optional.
         // A Geocoding request with region=es (Spain) will return the Spanish city.
-        Geocode.setRegion("es");
+        Geocode.setRegion("en");
         
         // Enable or disable logs. Its optional.
         Geocode.enableDebug();
@@ -108,7 +157,7 @@ class Listing extends Component {
                     <label>
                         <input
                             type="checkbox"
-                            name="sharedWasherDryter"
+                            name="sharedWasherDryer"
                             checked = {this.state.sharedWasherDryer}
                             onChange = {this.handleChange}
                         />
@@ -181,9 +230,9 @@ class Listing extends Component {
                     <input type="text" name="maxPrice" value={this.state.maxPrice}
                     placeholder="maximum price (per month)" onChange={this.handleChange}/>
                     <br />
-                    <input type="text" name="startDate" value={this.state.startDate}
-                    placeholder="Start of sublease" onChange={this.handleChange}/>
-                    <br />
+                    <h1>Choose start Date</h1>
+                    <Calendar onChange={this.onChange} value= {this.state.startDate}/>
+
                     <select value = {this.state.months} onChange= {this.handleChange}
                    name = "months">
                        <option value="nothing">Length of lease</option>
@@ -222,7 +271,18 @@ class Listing extends Component {
                        <option value = "no">No</option>
                    </select>
                    <br />
-                    <button onSubmit={this.handleClick}>Submit</button>
+                   <textarea name = "subleaseReason" value={this.state.subleaseReason} 
+                    placeholder="Reason for subleasing?"
+                    onChange={this.handleChange}/>
+                    <br />
+                    <textarea name = "roomDescr" value={this.state.roomDescr} 
+                    placeholder="Give a description of your place. "
+                    onChange={this.handleChange}/>
+                   <br />
+                   <Slider axis="x" xstep={1} xmin={0} xmax={100} x={this.state.x}
+                   onChange={({ x }) => this.setState({ x: parseFloat(x.toFixed(2)) })}/> 
+                   <br />
+                    <button onClick={this.submit}>Create Listing</button>
                 </form>
                 <h1>{this.state.lat} {this.state.lng}</h1>
             </div>
